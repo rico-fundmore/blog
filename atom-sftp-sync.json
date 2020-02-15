@@ -1,0 +1,10 @@
+{
+    "type": "ftp",
+    "host": "avoy.me",
+    "username": "avoy18",
+    "password": "Mrba$415",
+    "port": 21,
+    "remotePath": "/httpdocs/blog",
+    "uploadOnSave": true,
+    "uploadConfigFile": false
+}
