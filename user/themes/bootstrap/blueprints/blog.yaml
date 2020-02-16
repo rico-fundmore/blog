@@ -32,6 +32,11 @@ form:
           title: Blog List
 
           fields:
+            header.headertitle:
+              type: text
+              label: Header Title
+              default: 'Your Local Multimedia Blog'
+              
             header.content.items:
               type: select
               label: Items

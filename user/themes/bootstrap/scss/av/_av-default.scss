@@ -1,45 +1,105 @@
 /* images responsive */
+
 img {
     max-width: 100%;
 }
 
+
 /* Constrain the width */
+
 .container {
-  width: auto;
-  max-width: 1170px;
-  padding: 0 15px;
+    width: auto;
+    max-width: 1170px;
+    padding: 0 15px;
 }
+
 
 /* Center the footer text */
+
 .container .text-muted {
-  margin: 20px 0;
-  text-align: center;
+    margin: 20px 0;
+    text-align: center;
 }
 
-/* Make branding more obvious */
-.navbar .navbar-brand {
-	color: #333;
-  font-size: 26px;
+
+
+// Category Labels
+.label-primary{
+    background-color:transparent;
+    border:2px solid;
+    padding:5px 15px;
+    border-radius:15px;
+    text-decoration: none;
+    transition:0.2s;
+    margin-bottom:10px;
+    display:inline-block;
+
+    &.label-graphics{
+        border-color: #EE5919;
+        color: #EE5919;
+        &:hover{
+           background-color: #EE5919;
+       }
+   }
+   
+   &.label-web{
+        border-color: #317CC1;
+        color: #317CC1;
+        &:hover{
+           background-color: #317CC1;
+            
+       }
+   }
+   
+   &.label-motion{
+        border-color: #7968E2;
+        color: #7968E2;
+        &:hover{
+           background-color: #7968E2;
+       }
+   }
+
 }
+
+
 
 /* Sticky footer styles
 -------------------------------------------------- */
+
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    font-size: 16px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
 }
 
+a{
+    text-decoration: underline;
+    color:$secondary;
+    transition: 0.3s;
+    &:hover{
+        color:$primary;
+        text-decoration: none;
+    }
+}
+
+h1,
+h2,
+h3,
+h4 {
+    @include bodyHeading;
+}
 
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  background-color: $footer-bg;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: $footer-bg;
 }
+

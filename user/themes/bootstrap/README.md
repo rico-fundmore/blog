@@ -1,3 +1,5 @@
+This my personal theme theme based on a bootstrap starter theme from team Grav.
+
 # Bootstrap
 
 ![Bootstrap](assets/readme_1.png)

@@ -11,34 +11,44 @@
 		{% set feed_url = base_url~'/'~page.parent.slug %}
 	{% endif  %}
 
+	{% set page_url = 'https://avoy.me/'~page.url  %}
+
 	{% block content %}
-		
+
 		<div class="header single-item" style="background-image:url('{{ page.media|first.url('') }}');">
 			<div class="container">
-			{% if page.taxonomy.category %}
-				<span class="tags">
-					{% for category in page.taxonomy.category %}
-						<a class="label label-primary" href="{{ base_url }}/category{{ config.system.param_sep }}{{ category }}">{{ category }}</a>
-					{% endfor %}
-				</span>
-			{% endif %}
-				<h1>{{ page.title }}</h1>
-				{% if config.plugins.breadcrumbs.enabled %}
-					{% include 'partials/breadcrumbs.html.twig' %}
-				{% endif %}
-
+				<div class="header-text">
+					{% if page.taxonomy.category %}
+						<span class="tags">
+							{% for category in page.taxonomy.category %}
+								<a class="label label-primary label-{{ category | lower }}" href="{{ base_url }}/category{{ config.system.param_sep }}{{ category }}">{{ category }}</a>
+							{% endfor %}
+						</span>
+					{% endif %}
+					<h1>{{ page.title }}</h1>
+					{% if config.plugins.breadcrumbs.enabled %}
+						{% include 'partials/breadcrumbs.html.twig' %}
+					{% endif %}
+				</div>
 			</div>
 		</div>
 		<div class="container">
 
 			<div class="row">
-				<div class="col-sm-8 blog-main">
-
-
+				<div class="col-sm-9 blog-main blog-single avlx" data-rellax-speed="4">
 					{% include 'partials/blog_item.html.twig' with {'blog':page.parent, 'truncate':false, 'big_header':true} %}
+					<div class="sharelinks avlx" data-rellax-speed="-3">
+						<ul class="list-unstyled">
+						{{ dump(page) }}
+						<li><a href="https://www.facebook.com/sharer/sharer.php?u={{ page_url }}"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="https://twitter.com/share?url={{ page_url }}"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="https://www.linkedin.com/shareArticle?url={{ page_url }}&title={{ page.title }}&summary={{ page.summary }}&source={{ page_url }}"><i class="fa fa-linkedin"></i></a></li>
+						<li><a href="https://reddit.com/submit?url={{ page_url }}"><i class="fa fa-reddit"></i></a></li>
+						</ul>
+					</div>
 				</div>
 
-				<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+				<div class="col-sm-3 blog-sidebar" >
 					{% include 'partials/sidebar.html.twig' with {'blog':page.parent}%}
 				</div>
 			</div>

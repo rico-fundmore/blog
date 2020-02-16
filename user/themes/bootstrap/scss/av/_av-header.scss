@@ -2,27 +2,47 @@
 .av-nav {
     position: absolute;
     width: 100%;
+    z-index: 2;
+    padding-top:50px;
+}
+
+.navbar .navbar-brand{
+    color:#efefef;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+    font-weight:400;
+    font-size:18px;
+    .av-intial{
+        color:white;
+    }
+
 }
 
 .header {
     @include linear-gradient(darken($header-bg,5%), lighten($header-bg,5%));
     // margin-top: -20px;
-    margin-bottom: 30px;
-    padding-top: 65px;
-    padding-bottom: 50px;
+    background-size:cover;
+    background-position: center;
+    padding-top: 110px;
+    padding-bottom: 110px;
     min-height:600px;
-    text-align: center;
     color: $header-text;
+    display:flex;
+    align-items:center;
+    position:relative;
 
      h1 {
-        font-size: 60px;
+        font-size: 38px;
         color: $header-title;
         margin-top: 0;
+        font-weight: 400;
+        letter-spacing: 0.7rem;
         @include breakpoint(tablet-range) {
-            font-size: 40px;
+            font-size: 20px;
         }
         @include breakpoint(mobile-only) {
-            font-size: 30px;
+            font-size: 20px;
             line-height: 1.2;
             margin-bottom: 2.5rem;
         }
@@ -33,14 +53,38 @@
         font-weight: normal;
     }
 
-    .btn {
-         font-size: 22px;
-        padding: 10px 30px;
-        margin-top: 30px;
-        border-radius: $border-radius;
-        box-shadow: none;
-        border: 0;
+
+    &:before{
+        @include before;
+        left:0;
+        top:0;
+        // background: linear-gradient(180deg, rgba(50, 58, 75, 0.52) 73.36%, #0C2352 97.45%)
+        background: linear-gradient(180deg, #100F21 0.58%, rgba(1, 37, 70, 0.82) 0.59%, rgba(1, 69, 70, 0.82) 54.17%, #162B2C 97.49%)
     }
+
+    .container{
+        position:relative;
+        width:100%;
+    }
+
+    .breadcrumb a{
+        color:#efefef;
+        text-decoration: none;
+    }
+
+    .header-text{
+        max-width:742px;
+    }
+}
+
+
+
+
+@mixin av-header-768{
+    .header:before{
+        background: linear-gradient(90deg, rgba(1, 37, 70, 0.82) 0.59%, rgba(1, 69, 70, 0.82) 54.17%)
+    }
+    // background: linear-gradient(90deg, #14234A 0.58%, rgba(44, 53, 74, 0.32) 40.63%, rgba(50, 58, 75, 0.32) 54.17%, #0C2352 97.49%);
 }
 
 

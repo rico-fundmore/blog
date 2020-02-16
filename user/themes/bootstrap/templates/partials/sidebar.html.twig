@@ -6,8 +6,8 @@
 
 <div class="sidebar-content about-me">
 	<div class="avatar" style="background-image:url('{{ indexObject.media[indexObject.header.sidebar.about.pic].url() }}');"></div>
-	<div class="about-content">
-		<h4>{{ about.title }}</h4>
+	<div class="about-content text-center">
+		<h4 class="side-heading">{{ about.title }}</h4>
 		<p>{{ about.text }}</p>
 
 		<ul class="socials">
@@ -23,14 +23,25 @@
 </div>
 
 <div class="sidebar-content recent-posts">
-	<h3>Recent Posts</h3>
-	{% for p in indexObject.children.order('date', 'desc').slice(0, 5) %}
+	<h3 class="side-heading">Recent Posts</h3>
+	{% for p in indexObject.children.order('date', 'desc').slice(0, 2) %}
 		<div class="recent-post">
 			<div class="recent-post-text">
-				<h4>
-					<a href="{{p.url}}">{{ p.title }}</a>
-				</h4>
+				<a href="{{p.url}}">{{ p.title }}</a>
 			</div>
+		</div>
+	{% endfor %}
+</div>
+
+<div class="sidebar-content favcourses">
+	<h3 class="side-heading">{{ favcourses.title }}</h3>
+	{% for p in favcourses.links %}
+		<div class="favcourses-text">
+			<img src="{{ p.image }}" alt="">
+			<a rel="nofollow" href="{{p.url}}">
+				{{ p.title }}
+				<span class="course-author">{{ p.author }}</span>
+			</a>
 		</div>
 	{% endfor %}
 </div>

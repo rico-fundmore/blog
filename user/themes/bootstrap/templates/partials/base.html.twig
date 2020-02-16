@@ -5,6 +5,8 @@
 			<meta charset="utf-8"/>
 			<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 			<meta name="viewport" content="width=device-width, initial-scale=1"/>
+			<link rel="favicon" href="http://avoy.me/img/favicon.ico">
+			<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" type="text/css">
 			{% include 'partials/metadata.html.twig' %}
 			<title>
 				{% if header.title %}
@@ -22,6 +24,9 @@
 			{% block javascripts %}
 				{% do assets.add('jquery', 101) %}
 				{% do assets.add('theme://js/modernizr.custom.71422.js', 100) %}
+				{% do assets.addJs('theme://js/rellax.min.js', {loading: defer,'priority':102, 'group':'bottom'}) %}
+				{% do assets.addJs('theme://js/main.js', {loading: defer,'priority':101, 'group':'bottom'}) %}
+				
 
 				{% if browser.getBrowser == 'msie' and browser.getVersion >= 8 and browser.getVersion <= 9 %}
 					{% do assets.add('https://oss.maxcdn.com/respond/1.4.2/respond.min.js') %}
@@ -63,7 +68,9 @@
 
 		</footer>
 		{% block bottom %}
+
 			{{ assets.js('bottom')|raw }}
+			
 		{% endblock %}
 	</body>
 </html>
