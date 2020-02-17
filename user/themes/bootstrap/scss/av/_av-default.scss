@@ -1,3 +1,7 @@
+p, body, a, ul{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
 /* images responsive */
 
 img {
@@ -23,11 +27,51 @@ img {
 
 
 
+
+
+
+
+
+
+
+
+
+.btn-primary{
+    background-color:$primary;
+    border-color:$primary;
+    padding:5px 30px;
+    text-decoration: none;
+    &:hover, &.disabled,&:disabled{
+        background-color:darken($primary,10%);
+        border-color:darken($primary,10%);
+    }
+    &.focus,&:focus{
+        box-shadow: 0 0 0 .2rem rgba($primary,.5)
+    }
+
+}
+
+.btn-primary:not(:disabled):not(.disabled).active,.btn-primary:not(:disabled):not(.disabled):active,.show>.btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color:darken($primary,10%);
+    border-color:darken($primary,10%);
+}
+
+.btn-primary:not(:disabled):not(.disabled).active:focus,.btn-primary:not(:disabled):not(.disabled):active:focus,.show>.btn-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 .2rem rgba($primary,.5)
+}
+
+
+
+
 // Category Labels
 .label-primary{
     background-color:transparent;
     border:2px solid;
     padding:5px 15px;
+    font-size:12px;
+    text-transform: uppercase;
+    font-weight:bold;
     border-radius:15px;
     text-decoration: none;
     transition:0.2s;
@@ -38,6 +82,7 @@ img {
         border-color: #EE5919;
         color: #EE5919;
         &:hover{
+            color:white;
            background-color: #EE5919;
        }
    }
@@ -46,6 +91,7 @@ img {
         border-color: #317CC1;
         color: #317CC1;
         &:hover{
+            color:white;
            background-color: #317CC1;
             
        }
@@ -55,6 +101,7 @@ img {
         border-color: #7968E2;
         color: #7968E2;
         &:hover{
+            color:white;
            background-color: #7968E2;
        }
    }

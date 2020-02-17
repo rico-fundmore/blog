@@ -1,0 +1,62 @@
+<div class="container">
+	<div class="list-item row">
+
+		{% set header_image = page.header.header_image|defined(true) %}
+		{% set header_image_width  = page.header.header_image_width|defined(900) %}
+		{% set header_image_height = page.header.header_image_height|defined(300) %}
+		{% set header_image_file = page.header.header_image_file %}
+		{% set header_image_url = page.media[header_image_file].url %}
+		{%if(page.header.featured)%}
+			<div class="list-blog featured col-md-12 avlx" data-rellax-speed="3" >
+			<img class="blog-featured-image" src="{{ header_image_url }}" alt="">
+			{% include 'partials/sharelinks.html.twig' with {'page':child, 'truncate':true} %}
+		{%else%}
+			<div class="list-blog avlx col-md-6" data-rellax-speed="3">
+		{%endif%}
+
+					<div class="list-blog-header">
+
+						{% if page.taxonomy.category %}
+							<span class="tags">
+								{% for category in page.taxonomy.category %}
+									<a class="label label-primary label-{{ category | lower }}" href="{{ base_url }}/category{{ config.system.param_sep }}{{ category }}">{{ category }}</a>
+								{% endfor %}
+							</span>
+						{% endif %}
+
+						<h3 class="blog-heading">
+							<a href="{{ page.link }}">{{ page.title }}</a>
+						</h3>
+
+					</div>
+
+					<div class="list-blog-padding blog-content">
+
+						{% if page.header.continue_link is sameas(false) %}
+							<p>{{ page.content }}</p>
+							{% if not truncate %}
+								{% set show_prev_next = true %}
+							{% endif %}
+						{% elseif truncate and page.summary != page.content %}
+							{{ page.summary }}
+							<p>
+								<a class="btn btn-primary" href="{{ page.url }}">Read More</a>
+							</p>
+						{% elseif truncate %}
+							{% if page.summary != page.content %}
+								{{ page.content|truncate(750) }}
+							{% else %}
+								{{ page.content }}
+							{% endif %}
+							<p>
+								<a href="{{ page.url }}">Continue Reading...</a>
+							</p>
+						{% else %}
+							<p>{{ page.content }}</p>
+							{% set show_prev_next = true %}
+						{% endif %}
+
+					</div>
+				</div>
+			</div>
+		</div>

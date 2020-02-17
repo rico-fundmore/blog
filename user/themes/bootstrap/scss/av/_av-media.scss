@@ -1,12 +1,14 @@
 
 
 @media screen and(min-width:480px){
-    
+    @include av-header-768;
 }
 
 @media screen and(min-width:768px){
     @include av-blogsingle-768;
-    @include  av-header-768;
+    @include av-header-768;
+    @include av-blogindex-768;
+    
 }
 
 @media screen and(min-width:960px){
@@ -14,7 +16,7 @@
 }
 
 @media screen and(min-width:1200px){
-    
+    @include av-blogindex-1200;
 }
 
 @media screen and(min-width:1600px){

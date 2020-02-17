@@ -12,10 +12,12 @@
 	{% endif  %}
 
 	{% set page_url = 'https://avoy.me/'~page.url  %}
+	
+	{% set featured_image = page.header.header_image_file ? page.media[page.header.header_image_file].url : 'asas' %}
 
 	{% block content %}
 
-		<div class="header single-item" style="background-image:url('{{ page.media|first.url('') }}');">
+		<div class="header single-item" style="background-image:url('{{ featured_image }}');">
 			<div class="container">
 				<div class="header-text">
 					{% if page.taxonomy.category %}
@@ -35,17 +37,9 @@
 		<div class="container">
 
 			<div class="row">
-				<div class="col-sm-9 blog-main blog-single avlx" data-rellax-speed="4">
+				<div class="col-sm-9 blog-main blog-single avlx" data-rellax-speed="3">
 					{% include 'partials/blog_item.html.twig' with {'blog':page.parent, 'truncate':false, 'big_header':true} %}
-					<div class="sharelinks avlx" data-rellax-speed="-3">
-						<ul class="list-unstyled">
-						{{ dump(page) }}
-						<li><a href="https://www.facebook.com/sharer/sharer.php?u={{ page_url }}"><i class="fa fa-facebook"></i></a></li>
-						<li><a href="https://twitter.com/share?url={{ page_url }}"><i class="fa fa-twitter"></i></a></li>
-						<li><a href="https://www.linkedin.com/shareArticle?url={{ page_url }}&title={{ page.title }}&summary={{ page.summary }}&source={{ page_url }}"><i class="fa fa-linkedin"></i></a></li>
-						<li><a href="https://reddit.com/submit?url={{ page_url }}"><i class="fa fa-reddit"></i></a></li>
-						</ul>
-					</div>
+					{% include 'partials/sharelinks.html.twig'%}
 				</div>
 
 				<div class="col-sm-3 blog-sidebar" >

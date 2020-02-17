@@ -12,12 +12,15 @@
 		{% set feed_url = base_url~'/'~page.slug %}
 	{% endif  %}
 
+    {% set header_image = page.header.headerimage ? page.media[page.header.headerimage].url %}
+
 	{% block content %}
 
 
-		<div class="header blog">
+		<div class="header blog" style="background-image:url('{{ header_image }}')">
 			<div class="container">
 				<h1>{{ page.header.headertitle }}</h1>
+                <div class="text-white">{{ page.header.headercontent }}</div>
 			</div>
 		</div>
 		<div class="container">
@@ -29,8 +32,9 @@
 					{% endif %}
 
 					{% for child in collection %}
-                            {% include 'partials/blog_item_forindex.html.twig' with {'page':child, 'truncate':true} %}
+                            {% include 'partials/blogindex_item.html.twig' with {'page':child, 'truncate':true} %}
 					{% endfor %}
+                    
 
 				</div>
 

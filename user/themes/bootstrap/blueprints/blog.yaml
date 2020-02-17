@@ -36,6 +36,13 @@ form:
               type: text
               label: Header Title
               default: 'Your Local Multimedia Blog'
+            header.headercontent:
+              type: text
+              label: Header Subtitle
+              default: 'Everything about web & graphics & motion'
+            header.headerimage:
+              type: pagemediaselect
+              label: Header Image
               
             header.content.items:
               type: select

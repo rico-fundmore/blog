@@ -1,5 +1,144 @@
 .sharelinks {
     position: absolute;
-    left: -15px;
-    top: 200px;
+    top: -44px;
+    left: 0px;
+
+    ul {
+        display: flex;
+    }
+
+    &:hover {
+        .sharelink {
+            opacity: 0.7;
+        }
+    }
+}
+
+.sharelink {
+    padding: 20px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #f5f5f5;
+    margin-right: 3px;
+    border-radius: 4px 4px 0px 0px;
+
+    &:hover {
+        color: white;
+        opacity: 1;
+    }
+
+    &.facebook,
+    &.facebook:hover {
+        background-color: #4267B2;
+        opacity: 1;
+    }
+
+    &.twitter,
+    &.twitter:hover {
+        background-color: #1DA1F2;
+        opacity: 1;
+    }
+
+    &.linkedin,
+    &.linkedin:hover {
+        background-color: #2867B2;
+        opacity: 1;
+    }
+
+    &.reddit,
+    &.reddit:hover {
+        background-color: #FF4500;
+        opacity: 1;
+    }
+}
+
+
+.list-blog {
+    padding: 20px;
+
+    &.featured {
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        min-height: 420px;
+        flex-direction: column;
+        justify-content: flex-end;
+        margin-top: -110px;
+        min-height: 320px;
+        position: relative;
+        border-top: 4px solid #b3142f;
+        overflow: hidden;
+
+        .blog-featured-image {
+            position: absolute;
+            z-index: -1;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: auto;
+            max-width: initial;
+            transition:0.3s;
+        }
+
+        &:hover {
+            .blog-featured-image{
+                transform:scale(1.2);
+            }
+        }
+
+        &:before {
+            @include before;
+            left: 0;
+            top: 0;
+            // background: linear-gradient(90deg, rgba(1, 37, 70, 0.82) 0.59%, rgba(1, 69, 70, 0.82) 54.17%);
+            background: linear-gradient(91.83deg, #081124 1.76%, rgba(8, 18, 39, 0.47) 77.93%, rgba(7, 19, 42, 0.67) 97.35%);
+        }
+
+        .list-blog-header,
+        .list-blog-padding {
+            position: relative;
+        }
+
+        .blog-content {
+            color: white;
+        }
+    }
+}
+
+.blog-heading {
+    margin-bottom: 10px;
+}
+
+
+
+
+@mixin av-blogindex-768 {
+    .list-blog {
+        padding: 40px;
+
+        &.featured {
+            padding: 60px;
+        }
+    }
+
+}
+
+@mixin av-blogindex-1200 {
+    .sharelinks {
+        left: -40px;
+        top: 140px;
+
+        ul {
+            flex-direction: column;
+        }
+    }
+
+    .sharelink {
+        border-radius: 4px 0px 0px 4px;
+        margin-bottom: 3px;
+    }
 }
