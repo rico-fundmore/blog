@@ -12,7 +12,7 @@
 		{% set feed_url = base_url~'/'~page.slug %}
 	{% endif  %}
 
-    {% set header_image = page.header.headerimage ? page.media[page.header.headerimage].url %}
+	{% set header_image = page.header.headerimage ? page.media[page.header.headerimage].url %}
 
 	{% block content %}
 
@@ -20,7 +20,7 @@
 		<div class="header blog" style="background-image:url('{{ header_image }}')">
 			<div class="container">
 				<h1>{{ page.header.headertitle }}</h1>
-                <div class="text-white">{{ page.header.headercontent }}</div>
+				<div class="text-white">{{ page.header.headercontent }}</div>
 			</div>
 		</div>
 		<div class="container">
@@ -30,11 +30,15 @@
 					{% if config.plugins.breadcrumbs.enabled %}
 						{% include 'partials/breadcrumbs.html.twig' %}
 					{% endif %}
+					<div class="container">
+						<div class="row">
+							{% include 'partials/sharelinks.html.twig' with {'passedclass':'share-index'} %}
+							{% for child in collection %}
+								{% include 'partials/blogindex_item.html.twig' with {'page':child, 'truncate':true} %}
+							{% endfor %}
+						</div>
+					</div>
 
-					{% for child in collection %}
-                            {% include 'partials/blogindex_item.html.twig' with {'page':child, 'truncate':true} %}
-					{% endfor %}
-                    
 
 				</div>
 

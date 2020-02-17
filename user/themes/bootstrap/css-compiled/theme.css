@@ -546,6 +546,9 @@ body.fixed-nav {
     display: flex; }
   .sharelinks:hover .sharelink {
     opacity: 0.7; }
+  .sharelinks.share-index {
+    top: -151px;
+    left: 15px; }
 
 .sharelink {
   padding: 20px;
@@ -590,7 +593,7 @@ body.fixed-nav {
     overflow: hidden; }
     .list-blog.featured .blog-featured-image {
       position: absolute;
-      z-index: -1;
+      z-index: 0;
       left: 0;
       top: 0;
       height: 100%;
@@ -607,10 +610,12 @@ body.fixed-nav {
       height: 100%;
       left: 0;
       top: 0;
+      z-index: 1;
       background: linear-gradient(91.83deg, #081124 1.76%, rgba(8, 18, 39, 0.47) 77.93%, rgba(7, 19, 42, 0.67) 97.35%); }
     .list-blog.featured .list-blog-header,
     .list-blog.featured .list-blog-padding {
-      position: relative; }
+      position: relative;
+      z-index: 2; }
     .list-blog.featured .blog-content {
       color: white; }
 
@@ -651,6 +656,9 @@ body.fixed-nav {
   .sharelinks {
     left: -40px;
     top: 140px; }
+    .sharelinks.share-index {
+      top: 40px;
+      left: -25px; }
     .sharelinks ul {
       flex-direction: column; }
   .sharelink {

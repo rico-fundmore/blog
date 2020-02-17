@@ -1,5 +1,5 @@
-<div class="container">
-	<div class="list-item row">
+
+
 
 		{% set header_image = page.header.header_image|defined(true) %}
 		{% set header_image_width  = page.header.header_image_width|defined(900) %}
@@ -9,7 +9,7 @@
 		{%if(page.header.featured)%}
 			<div class="list-blog featured col-md-12 avlx" data-rellax-speed="3" >
 			<img class="blog-featured-image" src="{{ header_image_url }}" alt="">
-			{% include 'partials/sharelinks.html.twig' with {'page':child, 'truncate':true} %}
+	
 		{%else%}
 			<div class="list-blog avlx col-md-6" data-rellax-speed="3">
 		{%endif%}
@@ -58,5 +58,4 @@
 
 					</div>
 				</div>
-			</div>
-		</div>
+
