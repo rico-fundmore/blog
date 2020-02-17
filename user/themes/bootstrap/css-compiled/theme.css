@@ -54,7 +54,8 @@ blockquote {
 
 p, body, a, ul {
   font-family: 'Open Sans', sans-serif;
-  font-weight: 400; }
+  font-weight: 400;
+  color: #383838; }
 
 /* images responsive */
 img {
@@ -90,6 +91,29 @@ img {
 .btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show > .btn-primary.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(179, 20, 47, 0.5); }
 
+.btn-link {
+  padding-left: 0px;
+  padding-right: 0px;
+  text-decoration: none;
+  position: relative;
+  font-weight: bold;
+  color: #2D2D2D;
+  transition: 0.3s; }
+  .btn-link:before {
+    content: '';
+    width: 100%;
+    height: 1px;
+    display: block;
+    background-color: #b3142f;
+    position: absolute;
+    bottom: 3px;
+    transition: 0.3s; }
+  .btn-link:hover {
+    text-decoration: none;
+    color: #850f23; }
+    .btn-link:hover:before {
+      bottom: 0px; }
+
 .label-primary {
   background-color: transparent;
   border: 2px solid;
@@ -100,8 +124,9 @@ img {
   border-radius: 15px;
   text-decoration: none;
   transition: 0.2s;
-  margin-bottom: 10px;
-  display: inline-block; }
+  margin-bottom: 15px;
+  display: inline-block;
+  margin-right: 5px; }
   .label-primary.label-graphics {
     border-color: #EE5919;
     color: #EE5919; }
@@ -200,7 +225,7 @@ h4 {
     color: #fff;
     margin-top: 0;
     font-weight: 400;
-    letter-spacing: 0.7rem; }
+    letter-spacing: 0.5rem; }
   .header h2 {
     margin-top: 0;
     font-weight: normal; }
@@ -455,10 +480,12 @@ body.fixed-nav {
     margin-top: 74px;
     margin-bottom: 60px;
     border: 1px solid #2D2D2D;
-    padding: 45px 20px 40px 20px;
+    padding: 60px 20px 40px 20px;
     border-radius: 4px;
     position: relative;
     transition: 0.3s; }
+    .sidebar-content.about-me .side-heading {
+      margin-bottom: 7px; }
     .sidebar-content.about-me:hover {
       border: 1px solid #b3142f;
       box-shadow: 1px 2px 30px rgba(179, 20, 47, 0.2); }
@@ -531,12 +558,21 @@ body.fixed-nav {
   margin-top: 0px; }
 
 .blog-heading {
+  margin-bottom: 10px;
   font-weight: 400; }
   .blog-heading a {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.1rem;
+    line-height: 1.2;
+    display: block;
+    margin-bottom: 15px;
     text-decoration: none; }
 
 .featured .blog-heading a {
-  color: white; }
+  color: white;
+  font-size: 25px;
+  letter-spacing: 0.2rem; }
 
 .sharelinks {
   position: absolute;
@@ -578,19 +614,38 @@ body.fixed-nav {
     opacity: 1; }
 
 .list-blog {
-  padding: 20px; }
+  margin-bottom: 15px;
+  padding-left: 0px;
+  padding-right: 0px; }
+  .list-blog .blog-wrapper {
+    padding: 40px 20px;
+    box-shadow: 0px 0px 11px rgba(20, 35, 74, 0.1);
+    background: white;
+    border-radius: 4px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: 0.3s; }
+    .list-blog .blog-wrapper:hover {
+      box-shadow: 0px 0px 21px rgba(20, 35, 74, 0.2); }
   .list-blog.featured {
     background-size: cover;
     background-position: center;
     display: flex;
-    min-height: 420px;
     flex-direction: column;
     justify-content: flex-end;
+    margin-bottom: 30px;
     margin-top: -110px;
-    min-height: 320px;
+    min-height: 350px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     position: relative;
     border-top: 4px solid #b3142f;
     overflow: hidden; }
+    .list-blog.featured p {
+      color: #f5f5f5; }
     .list-blog.featured .blog-featured-image {
       position: absolute;
       z-index: 0;
@@ -619,9 +674,6 @@ body.fixed-nav {
     .list-blog.featured .blog-content {
       color: white; }
 
-.blog-heading {
-  margin-bottom: 10px; }
-
 @media screen and (min-width: 480px) {
   .av-nav {
     padding-top: 60px; }
@@ -638,6 +690,8 @@ body.fixed-nav {
     margin-left: 0px;
     margin-right: 0px;
     min-height: 700px; }
+  .featured .blog-heading a {
+    font-size: 28px; }
   .av-nav {
     padding-top: 60px; }
   .header {
@@ -647,17 +701,21 @@ body.fixed-nav {
       background: linear-gradient(90deg, rgba(1, 37, 70, 0.82) 0.59%, rgba(1, 69, 70, 0.82) 54.17%); }
     .header h1 {
       font-size: 38px; }
-  .list-blog {
+  .list-blog .blog-wrapper {
     padding: 40px; }
-    .list-blog.featured {
-      padding: 60px; } }
+  .list-blog.featured {
+    padding: 0px; }
+  .list-blog:nth-child(1n) {
+    padding-right: 7.5px !important; }
+  .list-blog:nth-child(2n) {
+    padding-left: 7.5px !important; } }
 
 @media screen and (min-width: 1200px) {
   .sharelinks {
     left: -40px;
     top: 140px; }
     .sharelinks.share-index {
-      top: 40px;
+      top: 30px;
       left: -25px; }
     .sharelinks ul {
       flex-direction: column; }

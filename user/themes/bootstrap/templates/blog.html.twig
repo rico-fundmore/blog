@@ -32,33 +32,49 @@
 					{% endif %}
 					<div class="container">
 						<div class="row">
+
 							{% include 'partials/sharelinks.html.twig' with {'passedclass':'share-index'} %}
-							{% for child in collection %}
-								{% include 'partials/blogindex_item.html.twig' with {'page':child, 'truncate':true} %}
-							{% endfor %}
+
+
+							{% if uri.params %}
+								{% for childr in collection  %}
+									{% include 'partials/blogindex_item.html.twig' with {'page':childr, 'truncate':true ,'categorypage': true} %}
+								{% endfor %}
+							{% else %}
+								{% for childf in collection if childf.header.featured == 1 %}
+									{% include 'partials/blogindex_item.html.twig' with {'page':childf, 'truncate':true} %}
+								{% endfor %}
+
+								{% for child in collection if child.header.featured != 1 %}
+									{% include 'partials/blogindex_item.html.twig' with {'page':child, 'truncate':true} %}
+								{% endfor %}
+
+							{%endif%}
+
+
+							</div>
+						</div>
+
+
+					</div>
+
+					<div class="col-sm-3 blog-sidebar">
+						{% include 'partials/sidebar.html.twig' with {'blog':page} %}
+					</div>
+				</div>
+			</div>
+		{% endblock %}
+
+		{% block pagination %}
+			{% if config.plugins.pagination.enabled and collection.params.pagination %}
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-8 text-center">
+							{% include 'partials/pagination.html.twig' with {'base_url':page.url, 'pagination':collection.params.pagination} %}
 						</div>
 					</div>
-
-
 				</div>
+			{% endif %}
+		{% endblock %}
 
-				<div class="col-sm-3 blog-sidebar">
-					{% include 'partials/sidebar.html.twig' with {'blog':page} %}
-				</div>
-			</div>
-		</div>
-	{% endblock %}
-
-	{% block pagination %}
-		{% if config.plugins.pagination.enabled and collection.params.pagination %}
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-8 text-center">
-						{% include 'partials/pagination.html.twig' with {'base_url':page.url, 'pagination':collection.params.pagination} %}
-					</div>
-				</div>
-			</div>
-		{% endif %}
-	{% endblock %}
-
-{% endembed %}
+	{% endembed %}

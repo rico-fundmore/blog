@@ -16,14 +16,23 @@
 }
 
 .blog-heading {
+    margin-bottom: 10px;
     font-weight: 400;
     a{
+        font-family: 'Varela Round', sans-serif;
+        font-size:20px;
+        letter-spacing:0.1rem;
+        line-height: 1.2;
+        display: block;
+        margin-bottom:15px;
         text-decoration: none;
     }
 }
 
 .featured .blog-heading a {
     color: white;
+    font-size: 25px;
+    letter-spacing: 0.2rem;
     
 }
 
@@ -36,4 +45,10 @@
         margin-right: 0px;
         min-height: 700px;
     }
+
+    
+.featured .blog-heading a {
+    font-size: 28px;
+}
+
 }
