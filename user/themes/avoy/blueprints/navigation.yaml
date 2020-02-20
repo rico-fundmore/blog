@@ -1,0 +1,32 @@
+title: Company Details
+form:
+    validation: loose
+    fields:
+
+        content:
+            type: section
+            title: 'Details'
+            underline: true
+        name:
+            type: text
+            label: 'Company Name'
+            size: medium
+            placeholder: 'ACME Corp'
+
+        address:
+            type: textarea
+            label: 'Address'
+            placeholder: '555 Somestreet,\r\nNewville, TX, 77777'
+            size: medium
+
+        email:
+            type: array
+            label: 'Email Addresses'
+            placeholder_key: Key
+            placeholder_value: Email Address
+
+        phone:
+            type: array
+            label: 'Phone Numbers'
+            placeholder_key: Key
+            placeholder_value: Phone Number

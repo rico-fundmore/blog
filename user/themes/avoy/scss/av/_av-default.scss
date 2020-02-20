@@ -1,0 +1,187 @@
+p, body, a, ul{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    color:#383838;
+}
+
+
+
+/* images responsive */
+
+img {
+    max-width: 100%;
+}
+
+
+/* Constrain the width */
+
+.container {
+    width: auto;
+    max-width: 1170px;
+    padding: 0 15px;
+}
+
+
+/* Center the footer text */
+
+.container .text-muted {
+    margin: 20px 0;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.btn-primary{
+    background-color:$primary;
+    border-color:$primary;
+    padding:5px 30px;
+    text-decoration: none;
+    &:hover, &.disabled,&:disabled{
+        background-color:darken($primary,10%);
+        border-color:darken($primary,10%);
+    }
+    &.focus,&:focus{
+        box-shadow: 0 0 0 .2rem rgba($primary,.5)
+    }
+
+}
+
+.btn-primary:not(:disabled):not(.disabled).active,.btn-primary:not(:disabled):not(.disabled):active,.show>.btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color:darken($primary,10%);
+    border-color:darken($primary,10%);
+}
+
+.btn-primary:not(:disabled):not(.disabled).active:focus,.btn-primary:not(:disabled):not(.disabled):active:focus,.show>.btn-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 .2rem rgba($primary,.5)
+}
+
+.btn-link{
+    padding-left:0px;
+    padding-right:0px;
+    text-decoration: none;
+    position: relative;
+    font-weight: bold;
+    color:$secondary;
+    transition:0.3s;
+
+    &:before{
+        content:'';
+        width:100%;
+        height:1px;
+        display: block;
+        background-color:$primary;
+        position:absolute;
+        bottom:3px;
+        transition:0.3s;
+    }
+
+    &:hover{
+        text-decoration: none;
+        color:darken($primary, 10%);
+        
+        &:before{
+            bottom:0px;
+        }
+    }
+}
+
+
+
+
+// Category Labels
+.label-primary{
+    background-color:transparent;
+    border:2px solid;
+    padding:5px 15px;
+    font-size:12px;
+    text-transform: uppercase;
+    font-weight:bold;
+    border-radius:15px;
+    text-decoration: none;
+    transition:0.2s;
+    margin-bottom:15px;
+    display:inline-block;
+    margin-right:5px;
+
+    &.label-graphics{
+        border-color: #EE5919;
+        color: #EE5919;
+        &:hover{
+            color:white;
+           background-color: #EE5919;
+       }
+   }
+   
+   &.label-web{
+        border-color: #317CC1;
+        color: #317CC1;
+        &:hover{
+            color:white;
+           background-color: #317CC1;
+            
+       }
+   }
+   
+   &.label-motion{
+        border-color: #7968E2;
+        color: #7968E2;
+        &:hover{
+            color:white;
+           background-color: #7968E2;
+       }
+   }
+
+}
+
+
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-size: 16px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+a{
+    text-decoration: underline;
+    color:$secondary;
+    transition: 0.3s;
+    &:hover{
+        color:$primary;
+        text-decoration: none;
+    }
+}
+
+h1,
+h2,
+h3,
+h4 {
+    @include bodyHeading;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: $footer-bg;
+}
+

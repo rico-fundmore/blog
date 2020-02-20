@@ -1,0 +1,19 @@
+//colors
+$core-accent : #2D2D2D;
+$secondary-accent: #2D2D2D;
+$secondary: #2D2D2D;
+$primary: #b3142f;
+$footer-bg: #f5f5f5;
+$border-color : #f0f0f0;
+$header-bg : $secondary-accent;
+$header-text : lighten($header-bg, 55%);
+$header-title : #fff;
+$text-bg : #F5F5F5;
+$text-text : #383838;
+//spacing
+$header-height: 50px;
+$padding-vert: 30px;
+$padding-horiz: 30px;
+$content-padding: 15px;
+$core-font-size: 14px;
+$border-radius: 3px;

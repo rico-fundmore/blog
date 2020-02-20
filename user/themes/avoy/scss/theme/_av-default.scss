@@ -1,0 +1,45 @@
+/* images responsive */
+img {
+    max-width: 100%;
+}
+
+/* Constrain the width */
+.container {
+  width: auto;
+  max-width: 1170px;
+  padding: 0 15px;
+}
+
+/* Center the footer text */
+.container .text-muted {
+  margin: 20px 0;
+  text-align: center;
+}
+
+/* Make branding more obvious */
+.navbar .navbar-brand {
+	color: #333;
+  font-size: 26px;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: $footer-bg;
+}

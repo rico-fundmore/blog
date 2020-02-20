@@ -1,0 +1,46 @@
+
+.av-nav {
+    position: absolute;
+    width: 100%;
+}
+
+.header {
+    @include linear-gradient(darken($header-bg,5%), lighten($header-bg,5%));
+    // margin-top: -20px;
+    margin-bottom: 30px;
+    padding-top: 65px;
+    padding-bottom: 50px;
+    min-height:600px;
+    text-align: center;
+    color: $header-text;
+
+     h1 {
+        font-size: 60px;
+        color: $header-title;
+        margin-top: 0;
+        @include breakpoint(tablet-range) {
+            font-size: 40px;
+        }
+        @include breakpoint(mobile-only) {
+            font-size: 30px;
+            line-height: 1.2;
+            margin-bottom: 2.5rem;
+        }
+    }
+
+    h2 {
+        margin-top: 0;
+        font-weight: normal;
+    }
+
+    .btn {
+         font-size: 22px;
+        padding: 10px 30px;
+        margin-top: 30px;
+        border-radius: $border-radius;
+        box-shadow: none;
+        border: 0;
+    }
+}
+
+

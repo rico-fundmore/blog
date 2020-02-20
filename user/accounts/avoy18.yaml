@@ -1,0 +1,11 @@
+state: enabled
+email: avoy18@gmail.com
+fullname: 'Anton Voytenko'
+title: 'Web designer & Developer'
+access:
+  admin:
+    login: true
+    super: true
+  site:
+    login: true
+hashed_password: $2y$10$roZB5tOA7BME2ItPjmRb2./9fcivIe09Y/9PtUqw2SueJ9S/vzW/K

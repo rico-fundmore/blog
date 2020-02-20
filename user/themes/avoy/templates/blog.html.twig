@@ -1,0 +1,86 @@
+{% embed 'partials/base.html.twig' %}
+
+	{% set collection = page.collection() %}
+	{% set base_url = page.url %}
+	{% set feed_url = base_url %}
+
+	{% if base_url == '/' %}
+		{% set base_url = '' %}
+	{% endif %}
+
+	{% if base_url == base_url_relative %}
+		{% set feed_url = base_url~'/'~page.slug %}
+	{% endif  %}
+
+	{% set header_image = page.header.headerimage ? page.media[page.header.headerimage].url %}
+
+	{% block content %}
+
+
+		<div class="header blog" style="background-image:url('{{ header_image }}')">
+			<div class="container">
+				{% if uri.params == false %}
+				<h1>{{ page.header.headertitle }}</h1>
+				<div class="text-white">{{ page.header.headercontent }}</div>
+				{% else %}
+				<h1>{{ uri.params | replace({'/': ''}) }}</h1>
+				{% endif %}
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-9 blog-main">
+
+					{% if config.plugins.breadcrumbs.enabled %}
+						{% include 'partials/breadcrumbs.html.twig' %}
+					{% endif %}
+					<div class="container">
+						<div class="row">
+							
+							
+
+
+							{% if uri.params %}
+							{% include 'partials/sharelinks.html.twig' with {'passedclass':'share-cat'} %}
+								{% for childr in collection  %}
+									{% include 'partials/blogindex_item.html.twig' with {'page':childr, 'truncate':true ,'categorypage': true} %}
+								{% endfor %}
+							{% else %}
+							{% include 'partials/sharelinks.html.twig' with {'passedclass':'share-index'} %}
+								{% for childf in collection if childf.header.featured == 1 %}
+									{% include 'partials/blogindex_item.html.twig' with {'page':childf, 'truncate':true} %}
+								{% endfor %}
+
+								{% for child in collection if child.header.featured != 1 %}
+									{% include 'partials/blogindex_item.html.twig' with {'page':child, 'truncate':true} %}
+								{% endfor %}
+
+							{%endif%}
+
+
+							</div>
+						</div>
+
+
+					</div>
+
+					<div class="col-sm-3 blog-sidebar">
+						{% include 'partials/sidebar.html.twig' with {'blog':page} %}
+					</div>
+				</div>
+			</div>
+		{% endblock %}
+
+		{% block pagination %}
+			{% if config.plugins.pagination.enabled and collection.params.pagination %}
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-8 text-center">
+							{% include 'partials/pagination.html.twig' with {'base_url':page.url, 'pagination':collection.params.pagination} %}
+						</div>
+					</div>
+				</div>
+			{% endif %}
+		{% endblock %}
+
+	{% endembed %}

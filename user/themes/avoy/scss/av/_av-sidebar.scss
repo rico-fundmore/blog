@@ -1,0 +1,108 @@
+.blog-sidebar {
+    padding-left: 30px;
+}
+
+.sidebar-content {
+    padding: 0px 10px;
+    margin-bottom: 50px;
+
+    .avatar {
+        width: 90px;
+        height: 90px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        top: -45px;
+        border: 1px solid #B7B7B7;
+    }
+
+    &.about-me {
+        margin-top: 74px;
+        margin-bottom:60px;
+        border: 1px solid $secondary;
+        padding: 60px 20px 40px 20px;
+        border-radius: 4px;
+        position: relative;
+        transition: 0.3s;
+
+        .side-heading{
+            margin-bottom: 7px;;
+        }
+
+        &:hover {
+            border: 1px solid $primary;
+            box-shadow: 1px 2px 30px rgba($primary, 0.2);
+        }
+    }
+
+    .socials {
+        position: absolute;
+        list-style: none;
+        justify-content: center;
+        left: 0;
+        right: 0;
+        margin: auto;
+        bottom: -20px;
+    }
+}
+
+.side-heading {
+    font-size: 20px;
+    margin-bottom:15px;
+}
+
+.socials {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0px;
+
+    a {
+        margin: 5px;
+        padding: 10px;
+        color: #f5f5f5;
+        background-color: $secondary;
+        border-radius: 30px;
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: 0.3s;
+
+        &:hover {
+
+            color: #fff;
+            background-color: $primary;
+        }
+    }
+}
+
+.recent-post-text a {
+    display: block;
+    margin-bottom: 7px;
+}
+
+.favcourses-text {
+    display: flex;
+    align-items: center;
+    margin-bottom:10px;
+    a{
+        font-weight:bold;
+        text-decoration: none;
+    }
+    img {
+        display: block;
+        margin-right: 10px;
+    }
+}
+
+.course-author{
+    display:block;
+    font-weight:400;
+}
